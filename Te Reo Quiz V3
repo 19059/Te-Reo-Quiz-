@@ -1,0 +1,105 @@
+# Title: 
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: will add one on to the user total score and also will count how many questions the user has got right.
+# Version: 3
+questionpos = 1;
+total_correct = 0;
+
+knows_rules = False
+loop_back = True
+
+
+# Title: Questions
+# Date: 26-08-2021 
+# Author: Dillon Robertson
+# Purpose: arry of questions.
+# Version: 3
+questions = [
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa",
+    "aa"
+]
+# Title:
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: arry of answers to the questions.
+# Version: 3
+
+answers = [
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a",
+    "a"
+]
+# Title: program start 
+# Date: 26-08-2021
+# Author: Dillon Robertson 
+# Purpose: starts the program asking the user if they know the rules, if they dont then it will print the rules, if they do the program will ask the questions. Program is in a while loop, looping back to the start once the rules have been printed.
+# Version: 3
+while loop_back == True:
+  print("welcome to the Maaori quiz")
+  print("what is your name?")
+  name = input().lower()
+  print("Hey "+ name + " have you played a Te Reo quiz before? (yes/no)   (y/n)")
+  rule_know = input().lower()
+  if rule_know == "yes" or rule_know == "y" or knows_rules:
+      if knows_rules == False:
+          print("Continue quiz")
+# Title: Question handler
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: loops through all the questions, gets the user input, assuming the answer is correct, it will add 1 to the total correct questions. otherwise the user is told the answer is wrong. 
+# Version: 3
+
+      for x in questions:
+        print(x)
+        question1_input = input().lower()
+        if answers[questionpos - 1] == question1_input:
+            print("congrats!")
+            total_correct = total_correct + 1
+        else:
+            print("thats incorrect")
+        questionpos = questionpos + 1
+# Title: End program info
+# Date: 26-08-2021  
+# Author: Dillon Robertson 
+# Purpose: tells the user their correct answers for the quiz, resets the other variables too.
+# Version: 3
+      if questionpos > 15: 
+        print(str(total_correct) + " / 15") 
+        loop_back = False
+        total_correct = 0
+        questionpos = 1
+# Title:
+# Date: 26-08-2021  
+# Author: Dillon Robertson  
+# Purpose: To show the rules to the user, then loops back to the top (program start) to start the quiz.
+# Version: 3 
+  else:
+      print("here are the rules")
+      print("")
+      knows_rules = True
