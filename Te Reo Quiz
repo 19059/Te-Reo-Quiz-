@@ -1,0 +1,28 @@
+import time
+# title: Welcome and greeting 
+# Date 09-07-2021
+# Author Dillon Robertson
+# Purpose: welcoming the user to the Te Reo quiz and asking for their name and if they have ever played a Te Reo quiz 
+# Version: 1
+print("welcome to the Te Reo quiz")
+time.sleep(0.5)
+print("what is your name?")
+name = input()
+print("Kia Ora " + name)
+time.sleep(1)
+print("have you played a Te Reo quiz before?")
+# title: played before  
+# Date 09-07-2021
+# Author Dillon Robertson
+# Purpose: if they have played before the Te Reo quiz before it continues and if they havent played before it shows the rules
+# Version: 1
+played_before = input().lower()
+if played_before == "yes" or played_before == "y":
+  print("quiz continues")
+  
+elif played_before == 'no' or played_before == 'n':
+  print("rules")
+  time.sleep(0.5)
+  
+else:
+  print("sorry " + name + " that isnt a vaild answer please answer with 'yes''y''no' or 'n'")
