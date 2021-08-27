@@ -1,0 +1,123 @@
+def statement_generater(statement,decoration) :
+  
+  side = decoration *3
+
+  statement = "{} {} {}".format(side,statement,side)
+  top_bottom = decoration *len(statement)
+
+  print(top_bottom)
+  print(statement)
+  print(top_bottom)
+
+  return""
+
+# Title: 
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: will add one on to the user total score and also will count how many questions the user has got right.
+# Version: 3
+
+questionpos = 1;
+total_correct = 0;
+
+knows_rules = False
+loop_back = True
+
+# Title: Questions
+# Date: 26-08-2021 
+# Author: Dillon Robertson
+# Purpose: arry of questions.
+# Version: 4
+
+questions = [
+    "Question 1: \nIs the Maaori word for red is whero (true or false)",
+    "Question 2: \nWhat is the Maaori word for Hamilton\n \n a) Kirikiriroa \n b) Aakarana \n c) Heretaunga",
+    "Question 3: \nIs the Maaori word for green is kaarerarera (true or false)",
+    "Question 4: \nWhat is the Maaori for Wellington\n \n a) Aakarana \n b) Wahingitana \n c) Whanganui-a-Tara, Te",
+    "Question 5: \nIs the Maaori word for purple mawhero? (true or false)",
+    "Question 6: \nWhat is the maaori name for computer?\n \n a) kiore \n b) papapātuhi \n c) rorohiko",
+    "Question 7: \nWhat is maaori name for televiston\n \n a) hootaka \n b) pouaka whakaata \n c) rerenga",
+    "Question 8: \nIs the maaori word for eighteen ngahuru mā waru? (true or false)",
+    "Question 9: \nWhat is the translation for hei tiki\n \n a) ear pendant \n b) neck pendant of human form \n c) good luck charm",
+    "Question 10: \nWhat would you catch with a paa kahawai?\n \n a) fish \n b) bird \n c) frogs",
+    "Question 11: \nWhen would you say kia ora?\n \n a) when you're saying hello to someone \n b) when you're agreeing with someone \n c) when you're wishing someone good health \n d) All of the above",
+    "Question 12: \nWhat is ono times iwa?\n \n a) wha tekau ma wha \n b) rima tekau ma wha \n c) ono tekau ma wha",
+    "Question 13: \nWhat is the number rima rau,rima tekau rua\n \n a) 452 \n b) 652 \n c) 552",
+    "Question 14: \nWhen did the Maaori fisrt arrive to New Zealand?\n \n a) 1230-1250 \n b) 1320-1350 \n c) 1370-1410",
+    "Question 15: \nWhat is 4 times 7 in Maaori?\n \n a) rua tekau waru \n b) rua tekau whitu \n c) rua tekau iwa "
+] 
+# Title:answers
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: arry of answers to the questions.
+# Version: 3
+
+answers = [
+    "true",
+    "a",
+    "true",
+    "c",
+    "false",
+    "c",
+    "b",
+    "true",
+    "b",
+    "a",
+    "d",
+    "b",
+    "c",
+    "b",
+    "a"
+]
+
+# Title: program start 
+# Date: 26-08-2021
+# Author: Dillon Robertson 
+# Purpose: starts the program by asking the user for their name and if they know the rules, if they dont then it will print the rules, if they do the program will ask the questions. Program is in a while loop, looping back to the start once the rules have been printed.
+# Version: 3
+
+while loop_back == True:
+  print("welcome to the Maaori quiz")
+  print("what is your name?")
+  name = input().lower()
+  print("Hey "+ name + " have you played a Te Reo quiz before? (yes/no)   (y/n)")
+  rule_know = input().lower()
+  if rule_know == "yes" or rule_know == "y" or knows_rules:
+      if knows_rules == False:
+          print("Continue quiz")
+# Title: Question handler
+# Date: 26-08-2021
+# Author: Dillon Robertson
+# Purpose: loops through all the questions, gets the user input, assuming the answer is correct, it will add 1 to the total correct questions. otherwise the user is told the answer is wrong. 
+# Version: 3
+
+      for x in questions:
+        print(x)
+        question1_input = input().lower()
+        if answers[questionpos - 1] == question1_input:
+            print("congrats!")
+            total_correct = total_correct + 1
+        else:
+            print("thats incorrect")
+        questionpos = questionpos + 1
+# Title: End program info
+# Date: 26-08-2021  
+# Author: Dillon Robertson 
+# Purpose: tells the user their correct answers for the quiz, resets the other variables too.
+# Version: 3
+
+      if questionpos > 15: 
+        print(str(total_correct) + " / 15") 
+        loop_back = False
+        total_correct = 0
+        questionpos = 1
+# Title:
+# Date: 26-08-2021  
+# Author: Dillon Robertson  
+# Purpose: To show the rules to the user, then loops back to the top (program start) to start the quiz.
+# Version: 3 
+
+  else:
+      print("here are the rules " + name)
+      statement_generater("The rules: There will be 15 questions and there will be multi choice and true or false and they will range for easy to hard, if you get a question qrong the quiz will still contiune and it will keep track of how many questiong you have got right, and it will tell you at the eat once you have finish answering them.Also not looking up the answers.","*")
+      knows_rules = True
