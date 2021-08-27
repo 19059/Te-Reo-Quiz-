@@ -1,0 +1,58 @@
+import time
+def statement_generater(statement,decoration) :
+
+  side = decoration *3
+
+  statement = "{} {} {}".format(side,statement,side)
+  top_bottom = decoration *len(statement)
+
+  print(top_bottom)
+  print(statement)
+  print(top_bottom)
+
+  return""
+
+# title: Welcome and greeting 
+# Date 09-07-2021
+# Author Dillon Robertson
+# Purpose: welcoming the user to the Te Reo quiz and asking for their name and if they have ever played a Te Reo quiz 
+# Version: 1
+print("welcome to the Te Reo quiz")
+time.sleep(0.5)
+print("what is your name?")
+name = input()
+print("Kia Ora " + name)
+time.sleep(1)
+print("have you played a Te Reo quiz before?")
+# title: played before  
+# Date 09-07-2021
+# Author Dillon Robertson
+# Purpose: if they have played before the Te Reo quiz before it continues and if they say no it prints the rules for them 
+# Version: 1.1
+played_before = input().lower()
+if played_before == "yes" or played_before == "y":
+  print("quiz continues")
+  print("")
+  print("Here are the easy questions")
+  time.sleep(0.2)
+  print("Question 1")
+  print("True or False the Maori word for red is whero")
+  Question_1 = input().lower
+  if Question_1 == "true" or Question_1 == "yes":
+    print("Good job you got that question right, here is your next question")
+  elif Question_1 == "false" or Question_1 == "no":
+    print ("sorry that is the wrong answer")
+
+# title: Rules   
+# Date 30-07-2021
+# Author Dillon Robertson
+# Purpose: to print the rule for the user if they dont know how to play 
+# Version: 2
+
+elif played_before == 'no' or played_before == 'n':
+  statement_generater("Here are the rules","*")
+  time.sleep(0.5)
+  statement_generater("rules #1 there is going to be 15 questions in this quiz 5 at easy, 5 at medien, and 5 at hard ","!")
+
+else:
+  print("sorry " + name + " that isnt a vaild answer please answer with 'yes''y''no' or 'n'")
